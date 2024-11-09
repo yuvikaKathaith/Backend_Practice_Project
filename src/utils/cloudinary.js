@@ -7,7 +7,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET, 
 });
 
-const uploadOnCloudinary = (localFilePath) => {
+const uploadOnCloudinary = async (localFilePath) => {
     try {
         if(!localFilePath) return 
         //upload the file on cloudinary
@@ -22,6 +22,5 @@ const uploadOnCloudinary = (localFilePath) => {
         return null;
     }
 }
-cloudinary.v2.uploader.upload_large("my_large_video.mp4", 
-    { resource_type: "video" }, 
-   function(error, result) {console.log(result, error); });
+
+export {uploadOnCloudinary}
